@@ -23,7 +23,9 @@
       <ul class="list-group">
         <li class="list-group-item"><strong>Población: </strong> {{country.population | number}} </li>
         <li class="list-group-item"><strong>Código: </strong>  {{country.cca3 }}</li>
-        <li class="list-group-item"><strong>Timezones: </strong> <ul><li *ngFor="let timezone of country.timezones"> {{timezone}} </li></ul> </li>
+        <li class="list-group-item"><strong>Idiomas: </strong> <ul> <li> {{ country.capital }} </li> </ul> </li>
+        <li class="list-group-item"><strong>Zona horaria: </strong> <ul> <li *ngFor="let zone of country.timezones" > {{zone}} </li> </ul> </li>
+
       </ul>
     </div>
   </div>
@@ -32,10 +34,16 @@
     <div class="col">
       <h3>Traducciones</h3>
       <div class="d-flex flex-wrap">
-        <span class="badge bg-primary m-1"> {{country.translations['ara'].common}} </span>
-        <span class="badge bg-primary m-1"> {{country.translations['ita'].common}} </span>
         <span class="badge bg-primary m-1"> {{country.translations['spa'].common}} </span>
-        <span class="badge bg-primary m-1"> {{country.translations['eng'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['cym'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['pol'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['ara'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['est'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['fin'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['ita'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['kor'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['bre'].common}} </span>
+        <span class="badge bg-primary m-1"> {{country.translations['per'].common}} </span>
       </div>
     </div>
   </div>

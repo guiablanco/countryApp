@@ -30,6 +30,7 @@ export class CountryPageComponent implements OnInit {
       .subscribe( country => {
 
         if(!country) return this.router.navigateByUrl('')
+        console.log(country);
 
         return this.country = country;
 
