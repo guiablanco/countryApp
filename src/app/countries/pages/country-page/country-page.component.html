@@ -23,8 +23,7 @@
       <ul class="list-group">
         <li class="list-group-item"><strong>Población: </strong> {{country.population | number}} </li>
         <li class="list-group-item"><strong>Código: </strong>  {{country.cca3 }}</li>
-        <li class="list-group-item"><strong>Idiomas: </strong> <ul> <li> {{ country.capital }} </li> </ul> </li>
-        <li class="list-group-item"><strong>Zona horaria: </strong> <ul> <li *ngFor="let zone of country.timezones" > {{zone}} </li> </ul> </li>
+        <li class="list-group-item"><strong>Zona horaria: </strong> <ul class="list-group"> <li class="list-group-item" *ngFor="let zone of country.timezones" > {{zone}} </li> </ul> </li>
 
       </ul>
     </div>
