@@ -31,9 +31,17 @@ export class CountriesService {
     this.loadFromLocalStorage();
   }
 
+  /**
+   * Función para agregar elementos al Local Storage
+   */
   private saveToLocalStorage(){
     localStorage.setItem( 'cacheStore', JSON.stringify(this.cacheStore) );
   }
+
+  /**
+   * Función para cargar la información de países buscados en local storage
+   * @returns : null, en caso de que el local store no tenga la información buscada.
+   */
   private loadFromLocalStorage(){
     if ( !localStorage.getItem('cacheStore') ) return;
 
@@ -58,6 +66,11 @@ export class CountriesService {
       )
   }
 
+/**
+ *
+ * @param code : Término para buscar por código de país.
+ * @returns : Observable de tipo Country
+ */
   searchCountryByAlphaCode( code: string ): Observable<Country | null> {
     const url = `${this.apiUrl}/alpha/${ code }`;
     return this.http.get<Country[]>( url )
@@ -71,6 +84,11 @@ export class CountriesService {
       ) ;
   }
 
+  /**
+   *
+   * @param term : Término para buscar países por capital.
+   * @returns : Observable de tipo array de Country.
+   */
   searchCapital( term: string ): Observable<Country[]> {
     const url = `${this.apiUrl}/capital/${ term }`;
     return this.getCountriesRequest(url, term, "capital")
@@ -80,6 +98,11 @@ export class CountriesService {
       );
   }
 
+  /**
+   *
+   * @param term : Término para buscar países por nombre de país.
+   * @returns : Observable de tipo array de Country.
+   */
   searchCountry( term: string ): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${ term }`;
     return this.getCountriesRequest(url, term, "nombre")
@@ -89,6 +112,11 @@ export class CountriesService {
     );
   }
 
+  /**
+   *
+   * @param region : Término para buscar países por región.
+   * @returns : Observable de tipo array de Country.
+   */
   searchRegion( region: Region ): Observable<Country[]> {
     const url = `${this.apiUrl}/region/${ region }`;
     return this.getCountriesRequest(url, region, "región")
